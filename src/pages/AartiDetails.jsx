@@ -24,13 +24,16 @@ function AartiDetails() {
         </button>
       </div>
 
-      <div className="bg-[#fdf6e3] shadow-lg rounded-xl border border-yellow-900 w-full max-w-5xl grid md:grid-cols-2 gap-4 p-6 font-devanagari text-lg leading-loose text-gray-800">
-        <div className="border-r border-yellow-400 pr-4">
-          {aarti.lang.devanagari}
-        </div>
-        <div className="pl-4 italic font-latin">
-          {aarti.lang.latin}
-        </div>
+      <div className="bg-[#fdf6e3] shadow-lg rounded-xl border border-yellow-900 w-full max-w-5xl p-6 font-devanagari text-lg leading-loose text-gray-800">
+        {showLatin ? (
+          <div className="italic font-latin">
+            {aarti.lang.latin}
+          </div>
+        ) : (
+          <div>
+            {aarti.lang.devanagari}
+          </div>
+        )}
       </div>
 
       <audio
