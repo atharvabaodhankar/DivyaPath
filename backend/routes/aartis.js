@@ -15,4 +15,17 @@ router.post('/', async (req, res) => {
   res.status(201).json(newAarti)
 })
 
+router.get('/seed', async (req, res) => {
+  await Aarti.create({
+    title: 'ॐ जय जगदीश हरे',
+    lang: {
+      devanagari: 'ॐ जय जगदीश हरे...',
+      latin: 'Om Jai Jagdish Hare...',
+    },
+    audio: 'https://example.com/aarti.mp3', // optional
+  })
+  res.send('Seeded ✅')
+})
+
+
 export default router
