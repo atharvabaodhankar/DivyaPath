@@ -1,13 +1,42 @@
 import { useParams } from 'react-router-dom'
-import aartiData from '../data/aartis.json'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function AartiDetails() {
   const { id } = useParams()
-  const aarti = aartiData.find((a) => a.id === id)
+  const [aarti, setAarti] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [showLatin, setShowLatin] = useState(false)
 
-  if (!aarti) return <div className="p-6">Aarti not found</div>
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/aartis/${id}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        return response.json()
+      })
+      .then(data => {
+        setAarti(data)
+        setLoading(false)
+      })
+      .catch(error => {
+        setError(error)
+        setLoading(false)
+      })
+  }, [id])
+
+  if (loading) {
+    return <div className="p-6 text-center">Loading Aarti...</div>
+  }
+
+  if (error) {
+    return <div className="p-6 text-center text-red-500">Error: {error.message}</div>
+  }
+
+  if (!aarti) {
+    return <div className="p-6 text-center">Aarti not found</div>
+  }
 
   return (
     <div className="min-h-screen bg-[#f3e5ab] p-6 flex flex-col items-center">
