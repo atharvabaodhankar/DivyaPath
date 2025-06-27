@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Tiro+Devanagari+Hindi&family=Roboto&display=swap');
+/* 👇 Add custom font classes manually */
+.font-devanagari {
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.font-title {
+  font-family: 'Gloock', serif;
+}
+
+.font-latin {
+  font-family: 'Roboto', sans-serif;
+}
