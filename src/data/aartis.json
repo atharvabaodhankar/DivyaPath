@@ -1,0 +1,20 @@
+[
+  {
+    "id": "shiv_aarti",
+    "title": "Shiv Aarti",
+    "lang": {
+      "devanagari": "ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा...",
+      "latin": "Om Jai Shiv Omkara, Swami Jai Shiv Omkara..."
+    },
+    "audio": "/shiv_aarti.mp3"
+  },
+  {
+    "id": "durga_aarti",
+    "title": "Durga Aarti",
+    "lang": {
+      "devanagari": "जय अम्बे गौरी, मैया जय श्यामा गौरी...",
+      "latin": "Jai Ambe Gauri, Maiya Jai Shyama Gauri..."
+    },
+    "audio": "/durga_aarti.mp3"
+  }
+]
