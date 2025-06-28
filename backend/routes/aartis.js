@@ -15,6 +15,17 @@ router.post('/', async (req, res) => {
   res.status(201).json(newAarti)
 })
 
+router.get('/seed', async (req, res) => {
+  await Aarti.create({
+    title: 'ॐ जय जगदीश हरे',
+    lang: {
+      devanagari: 'ॐ जय जगदीश हरे...',
+      latin: 'Om Jai Jagdish Hare...',
+    },
+  })
+  res.send('Seeded ✅')
+})
+
 router.get('/:id', async (req, res) => {
   try {
     const aarti = await Aarti.findById(req.params.id)
@@ -27,17 +38,6 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.get('/seed', async (req, res) => {
-  await Aarti.create({
-    title: 'ॐ जय जगदीश हरे',
-    lang: {
-      devanagari: 'ॐ जय जगदीश हरे...',
-      latin: 'Om Jai Jagdish Hare...',
-    },
-
-  })
-  res.send('Seeded ✅')
-})
 
 
 export default router
