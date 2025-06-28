@@ -65,13 +65,7 @@ function AartiDetails() {
         )}
       </div>
 
-      <audio
-        controls
-        className="mt-6 w-full max-w-md shadow-md border border-orange-700 rounded"
-      >
-        <source src={aarti.audio} type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
+
     </div>
   )
 }

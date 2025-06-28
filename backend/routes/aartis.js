@@ -34,7 +34,7 @@ router.get('/seed', async (req, res) => {
       devanagari: 'ॐ जय जगदीश हरे...',
       latin: 'Om Jai Jagdish Hare...',
     },
-    audio: 'https://example.com/aarti.mp3', // optional
+
   })
   res.send('Seeded ✅')
 })

@@ -7,7 +7,7 @@ const AartiSchema = new mongoose.Schema({
     devanagari: String,
     latin: String,
   },
-  audio: String,
+
 })
 
 export default mongoose.model('Aarti', AartiSchema)
