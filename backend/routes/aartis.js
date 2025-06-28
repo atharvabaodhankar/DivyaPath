@@ -15,6 +15,18 @@ router.post('/', async (req, res) => {
   res.status(201).json(newAarti)
 })
 
+router.get('/:id', async (req, res) => {
+  try {
+    const aarti = await Aarti.findById(req.params.id)
+    if (!aarti) {
+      return res.status(404).json({ message: 'Aarti not found' })
+    }
+    res.json(aarti)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
 router.get('/seed', async (req, res) => {
   await Aarti.create({
     title: 'ॐ जय जगदीश हरे',
