@@ -9,7 +9,7 @@ function AartiDetails() {
   const [showLatin, setShowLatin] = useState(false)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/aartis/${id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/aartis/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)

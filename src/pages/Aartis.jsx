@@ -7,11 +7,11 @@ function Aartis() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/aartis')
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/aartis`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
-        }
+        
         return response.json()
       })
       .then(data => {
