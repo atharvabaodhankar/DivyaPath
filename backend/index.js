@@ -1,5 +1,8 @@
 // backend/index.js
+import dotenv from 'dotenv'
 import express from 'express'
+
+dotenv.config()
 import connectDB from './db.js'
 import aartiRoutes from './routes/aartis.js'
 import cors from 'cors'
