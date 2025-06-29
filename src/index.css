@@ -13,3 +13,7 @@
 .font-latin {
   font-family: 'Roboto', sans-serif;
 }
+
+.special-text{
+  color: #000 !important;
+}

@@ -7,7 +7,7 @@ function AartiDetails() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [showLatin, setShowLatin] = useState(false)
-  const [fontSize, setFontSize] = useState(18) // Default font size
+  const [fontSize, setFontSize] = useState(22) // Increased default font size
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/aartis/${id}`)
@@ -41,7 +41,7 @@ function AartiDetails() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-start bg-cover bg-center pt-12 pb-6"
+      className="min-h-screen flex flex-col items-center justify-start bg-cover bg-center pt-12 pb-6 bg-fixed"
       style={{
         backgroundImage: `url('/images/wooden-floor-background.jpg')`,
       }}
@@ -76,7 +76,7 @@ function AartiDetails() {
       </div>
 
       <div
-        className="rounded-xl w-full max-w-5xl p-6 font-devanagari leading-loose text-gray-200 relative z-10"
+        className="rounded-xl w-full max-w-5xl p-6 font-devanagari leading-loose special-text relative z-10"
         style={{ fontSize: `${fontSize}px` }}
       >
         {showLatin ? (
