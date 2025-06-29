@@ -1,4 +1,3 @@
-// backend/models/Aarti.js
 import mongoose from 'mongoose'
 
 const AartiSchema = new mongoose.Schema({
