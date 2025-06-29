@@ -7,6 +7,7 @@ function AartiDetails() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [showLatin, setShowLatin] = useState(false)
+  const [fontSize, setFontSize] = useState(18) // Default font size
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/aartis/${id}`)
@@ -50,19 +51,38 @@ function AartiDetails() {
         📖 {aarti.title}
       </h2>
 
-      <div className="mb-4">
+      <div className="mb-4 flex items-center space-x-4">
         <button
           onClick={() => setShowLatin(!showLatin)}
           className="bg-orange-700 text-white px-4 py-2 rounded-full shadow hover:bg-orange-800 relative z-10"
         >
           Show {showLatin ? 'Devanagari' : 'Latin'} Script
         </button>
+        <div className="flex items-center space-x-2 relative z-10">
+          <button
+            onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
+            className="bg-gray-700 text-white px-3 py-1 rounded-full shadow hover:bg-gray-600"
+          >
+            A-
+          </button>
+          <span className="text-white text-lg">Font Size</span>
+          <button
+            onClick={() => setFontSize(prev => Math.min(30, prev + 2))}
+            className="bg-gray-700 text-white px-3 py-1 rounded-full shadow hover:bg-gray-600"
+          >
+            A+
+          </button>
+        </div>
       </div>
 
-      <div className="rounded-xl w-full max-w-5xl p-6 font-devanagari text-lg leading-loose text-white relative z-10">
+      <div
+        className="rounded-xl w-full max-w-5xl p-6 font-devanagari leading-loose text-gray-200 relative z-10"
+        style={{ fontSize: `${fontSize}px` }}
+      >
         {showLatin ? (
-          <div className="italic font-latin">            {aarti.lang.latin.split('।।|').map((stanza, index) => (
-              <p key={index} className="mb-2 last:mb-0 text-center " dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
+          <div className="italic font-latin">
+            {aarti.lang.latin.split('।।|').map((stanza, index) => (
+              <p key={index} className="mb-2 last:mb-0 text-center" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
             ))}
           </div>
         ) : (
