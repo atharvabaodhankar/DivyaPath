@@ -82,13 +82,13 @@ function AartiDetails() {
         {showLatin ? (
           <div className="italic font-latin">
             {aarti.lang.latin.split('।।|').map((stanza, index) => (
-              <p key={index} className="mb-2 last:mb-0 text-center" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
+              <p key={index} className="mb-2 last:mb-0 text-center text-white" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
             ))}
           </div>
         ) : (
           <div>
             {aarti.lang.devanagari.split('।।|').map((stanza, index) => (
-              <p key={index} className="mb-2 last:mb-0 font-devanagari text-center" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
+              <p key={index} className="mb-2 last:mb-0 font-devanagari text-center text-white" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
             ))}
           </div>
         )}
