@@ -15,16 +15,12 @@ router.post('/', async (req, res) => {
   res.status(201).json(newAarti)
 })
 
-router.get('/seed', async (req, res) => {
-  await Aarti.create({
-    title: 'ॐ जय जगदीश हरे',
-    lang: {
-      devanagari: 'ॐ जय जगदीश हरे...',
-      latin: 'Om Jai Jagdish Hare...',
-    },
-  })
-  res.send('Seeded ✅')
-})
+// ... existing code ...
+
+router.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'API is healthy' });
+});
+
 
 router.get('/:id', async (req, res) => {
   try {
