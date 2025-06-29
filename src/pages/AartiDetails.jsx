@@ -55,12 +55,15 @@ function AartiDetails() {
 
       <div className="bg-[#fdf6e3] shadow-lg rounded-xl border border-yellow-900 w-full max-w-5xl p-6 font-devanagari text-lg leading-loose text-gray-800">
         {showLatin ? (
-          <div className="italic font-latin">
-            {aarti.lang.latin}
+          <div className="italic font-latin">            {aarti.lang.latin.split('।।|').map((stanza, index) => (
+              <p key={index} className="mb-2 last:mb-0" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
+            ))}
           </div>
         ) : (
           <div>
-            {aarti.lang.devanagari}
+            {aarti.lang.devanagari.split('।।|').map((stanza, index) => (
+              <p key={index} className="mb-2 last:mb-0 font-devanagari" dangerouslySetInnerHTML={{ __html: stanza.trim().replace(/\n/g, '<br />') }}></p>
+            ))}
           </div>
         )}
       </div>
